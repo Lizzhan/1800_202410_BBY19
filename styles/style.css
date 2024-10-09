@@ -1,1 +1,79 @@
+/*
+* --------------------------------------------
+* Custom styles to override the default Bootstrap ones
+* --------------------------------------------
+*/
 
+/* New Color Palette: 
+* Gossamer (Text): 07A36E (text, contrast with dark) 
+* Bahama Blue (Primary): 075BA3 
+* Purple (Secondary): 4C07A3 (canvas background) 
+* Shiraz (Accent): A30724
+*/
+
+
+.bg-info {
+    background-color: #075BA3 !important;
+    /* Light green for secondary backgrounds */
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+    color: #4C07A3;
+    /* Dark green for brand name & nav links for visibility */
+}
+
+.btn-info {
+    color: #f2fbf2;
+    /* Lightest shade for text on info button for contrast */
+    background-color: #4C07A3;
+    /* Light green for button background */
+    border-color: #005a00;
+    /* Dark green for button border */
+}
+
+.btn-primary {
+    color: #f2fbf2;
+    /* Lightest shade for text */
+    font-size: 150%;
+    background-color: #005a00;
+    /* Dark green for primary button background */
+    border-color: #b75858;
+    /* Reddish-brown for border to use as accent */
+    border-width: thick;
+}
+
+body {
+    background-color: #f2fbf2;
+    /* Lightest shade for body background to follow the 60% rule */
+}
+
+.navbar-brand{
+    font-family: 'Sixtyfour Convergence', cursive; /*change the font name for what you have*/
+    font-size: 2.25rem;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.dropdown {
+    color: #4C07A3;
+}
+
+.btn {
+    color: #4C07A3;
+}
+
+.btn-primary {
+    color: #07A36E;
+}
+
+#logo {
+    height: 20vw;
+}
