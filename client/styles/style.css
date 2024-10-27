@@ -59,6 +59,18 @@ body{
     margin-bottom: 2em;
 }
 
+#ham-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+#hamburger{
+    height: 20px;
+    width: 20px;
+}
+
 .search-bar{
     display: flex;
     flex-direction: row;
