@@ -71,6 +71,33 @@ body{
     width: 20px;
 }
 
+.user-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: white;
+    width: 200px;
+    gap: 20px;
+
+}
+
+
+.user-form input{
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.user-form button{
+    padding: 10px;
+    border: none;
+    background-color: teal;
+    cursor: pointer;
+    color: white;
+}
+
 .search-bar{
     display: flex;
     flex-direction: row;
@@ -87,6 +114,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 20px;
 }
 
 .hero button{

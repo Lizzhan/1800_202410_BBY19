@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>ALERTOGO</title>
+    <title>Login</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -25,7 +25,7 @@
 
     <!-- Link to styles of your own -->
      <link rel="stylesheet" href="../styles/style.css">
-     <script src="../../server/fb.js"></script>
+
     
 </head>
 
@@ -55,70 +55,73 @@
         
 
         <div class="container-menu">
-                <!-- <img id="app-logo" src="./images/logo_transparent.png" alt="ALERTOGO Logo"> -->
-                <h6>ALERTOGO</h4>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
-                        <i class="bi bi-house"></i>
-                    Log in
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link link-dark">
-                        <i class="bi bi-pen"></i>
-                    Sign-Up
-                    </a>
-                </li>
+                <div id="ham-menu">
+                    <img src="../images/icon/more.png" alt="" id="hamburger">
+                </div>
+                <div id="side-menu">
+                    <h6>ALERTOGO</h4>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" aria-current="page">
+                            <i class="bi bi-house"></i>
+                        Log in
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link link-dark">
+                            <i class="bi bi-pen"></i>
+                        Sign-Up
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link link-dark">
-                        <i class="bi bi-file-earmark-word"></i>
-                    Disclaimer
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link link-dark">
-                        <i class="bi bi-shield-fill-check"></i>
-                    Privacy
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link link-dark">
-                        <i class="bi bi-globe"></i>
-                    Language
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link link-dark">
-                        <i class="bi bi-box-arrow-right"></i>
-                    Log Out
-                    </a>
-                </li>
-                </ul>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link link-dark">
+                            <i class="bi bi-file-earmark-word"></i>
+                        Disclaimer
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link link-dark">
+                            <i class="bi bi-shield-fill-check"></i>
+                        Privacy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link link-dark">
+                            <i class="bi bi-globe"></i>
+                        Language
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link link-dark">
+                            <i class="bi bi-box-arrow-right"></i>
+                        Log Out
+                        </a>
+                    </li>
+                    </ul>
             </div>
-            <div class="hero">
-                <div class="banner">
-                    <p>Welcome To Alertogo:
-                    <br>    
-                    A Commuter's Virtual Bulleten Board</p>
-                    <img src="../images/logo_transparent.png" alt="ALERTOGO" id="alertogo">
-                </div>
-                <button class="bi bi-house">Sign Up</button>
-            </div>
+        </div>
+        <div class="hero">
+            <h1>Login</h1>
+            <form class="user-form" id="login-form">
+                <input type="text" placeholder="username" id="login-username">
+                <input type="password" placeholder="password" id="login-password">
+                <button id="login-button">Login</button>
+            </form>
+        </div>
 
-            <footer id="footer">
-                <div class="menu-items">
-                    <a href="">User</a>
-                </div>
-                <div class="menu-items">
-                    <a href="">Saved</a>
-                </div>
-                <div class="menu-items">
-                    <a href="">Settings</a> 
-                </div>
-            </footer>
+        <footer id="footer">
+            <div class="menu-items">
+                <a href="">User</a>
+            </div>
+            <div class="menu-items">
+                <a href="">Saved</a>
+            </div>
+            <div class="menu-items">
+                <a href="">Settings</a> 
+            </div>
+        </footer>
     </div>
 
 
@@ -130,6 +133,8 @@
     <!---------------------------------------------->
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
+    <script src="../../server/fb.js"></script>
+    <script src="../scripts/dom.js"></script>
 
 </body>
 
