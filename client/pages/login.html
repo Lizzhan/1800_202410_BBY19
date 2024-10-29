@@ -25,7 +25,16 @@
 
     <!-- Link to styles of your own -->
      <link rel="stylesheet" href="../styles/style.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
+    <!-- FirebaseUI -->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
+
+
+     
     
 </head>
 
@@ -109,6 +118,7 @@
                 <input type="password" placeholder="password" id="login-password">
                 <button id="login-button">Login</button>
             </form>
+
         </div>
 
         <footer id="footer">
@@ -133,8 +143,9 @@
     <!---------------------------------------------->
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
-    <script src="../../server/fb.js"></script>
     <script src="../scripts/dom.js"></script>
+    <script src="../scripts/fb.js" defer></script>
+
 
 </body>
 
