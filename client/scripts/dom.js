@@ -24,9 +24,9 @@ const hideBar = () => {
 }
 
 //register
-const register = (e) => {
-    e.preventDefault();
-    registerBtn.addEventListener('click', ()=>{
+const register = () => {
+    registerBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
         console.log(registerEmail.value);
         fbRegister()
 });
@@ -47,4 +47,4 @@ const fbRegister = async () => {
 
 //calling function
 hideBar();
-fbRegister();
+register();
