@@ -7,7 +7,7 @@ import {
     loginEmail,
     loginPwd
  } from "./dom.js";
- import { auth } from "./fb.js";
+ import { auth } from "./firebase.js";
  import { 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword,
