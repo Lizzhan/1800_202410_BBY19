@@ -1,5 +1,6 @@
 import {sidebar, hamMenu} from "./dom.js";
 
+//toggling display property of sidebar menu
 let menuHidden = false;
 function hideBar(){
     hamMenu.addEventListener('click', ()=>{
