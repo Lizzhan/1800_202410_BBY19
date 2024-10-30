@@ -1,12 +1,3 @@
-import { 
-    registerBtn,
-    registerEmail,
-    registerPwd,
-    registerName,
-    loginBtn,
-    loginEmail,
-    loginPwd
- } from "./dom.js";
  import { auth } from "./firebase.js";
  import { 
     createUserWithEmailAndPassword, 
@@ -16,26 +7,12 @@ import {
     signOut,
   } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
 
-
-
-//register
-const register = () => {
-    registerBtn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        console.log(registerEmail.value);
-        fbRegister()
-});
-    }
-
-const fbRegister = async () => {
+const fbRegister = async (email, password, name) => {
     try{
-        const rEmail = registerEmail.value;
-        const rPwd = registerPwd.value;
-        const rName = registerName.value;
-        const userCredential = await createUserWithEmailAndPassword(auth, rEmail, rPwd,);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password,);
         console.log(userCredential);
         await updateProfile(userCredential.user, {
-            displayName: rName,
+            displayName: name,
         });
         console.log(userCredential.user.displayName);
         
@@ -44,49 +21,37 @@ const fbRegister = async () => {
     }
 }
 
-const login = () => {
-    loginBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log(loginEmail.value);
-        console.log(loginPwd.value);
-
-        // fbLogin();
-    })
-}
-
-const fbLogin = async () => {
+const fbLogin = async (email, password) => {
     try{
-        const lEmail = loginEmail.value;
-        const lPwd = loginPwd.value;
-        const userCredential = await signInWithEmailAndPassword(auth, lEmail, lPwd);
-        console.log(lEmail);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log(userCredential);
+        console.log(userCredential.user.displayName)
+        console.log(auth);
     }catch (err){
         console.log(err);
     }
 }
 
 const userSignIn = () => {
-    auth.onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
         if(user){
             $('#sidebar-placeholder').load('../pages/components/side_after.html');
-            console.log(user.displayName);
+            const userDisplayName = document.getElementById('username');
+            userDisplayName.textContent = user.displayName;
         }else{
-            $('#sidebar-placeholder').load('../pages/components/side_before.html');
+            console.log($('#sidebar-placeholder').load('../pages/components/side_before.html'));
 
         }
     })
 }
-// const signOut = async () => {
-//     try{
-//         signOut(auth);
 
-//     }catch (err){
-//         console.log(err);
-//     }
-// }
+const userSignOut = () => {
 
+}
 
-register();
-login();
 userSignIn();
+
+export {
+    fbRegister,
+    fbLogin
+}

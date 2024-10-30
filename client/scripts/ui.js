@@ -1,4 +1,5 @@
 import {sidebar, hamMenu} from "./dom.js";
+import {auth} from "./firebase.js";
 
 //toggling display property of sidebar menu
 let menuHidden = false;
@@ -15,6 +16,6 @@ function hideBar(){
         }
     })
 }
-$('#sidebar-placeholder').load('../pages/components/side_before.html');
+
 
 hideBar();
