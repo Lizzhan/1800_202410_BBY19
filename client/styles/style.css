@@ -128,7 +128,7 @@ a{
 .banner{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     text-align: center;
 
@@ -231,6 +231,14 @@ body {
     grid-row: 1 / span 5;
 }
 
+#search-button{
+    padding: 5px;
+    border: none;
+    background-color: teal;
+    cursor: pointer;
+    color: white;
+
+}
 #footer{
     grid-row: 3;
     grid-column: 1 / span 5;

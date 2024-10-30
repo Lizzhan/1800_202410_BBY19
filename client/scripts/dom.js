@@ -1,5 +1,5 @@
 //creating dom elements
-const sidebar = document.getElementById('side-menu');
+const sidebar = document.getElementById('sidebar-placeholder');
 const hamMenu = document.getElementById('ham-menu');
 const registerName = document.getElementById('register-name');
 const registerEmail = document.getElementById('register-username');

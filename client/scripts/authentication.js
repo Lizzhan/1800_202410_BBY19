@@ -10,12 +10,10 @@
 const fbRegister = async (email, password, name) => {
     try{
         const userCredential = await createUserWithEmailAndPassword(auth, email, password,);
-        console.log(userCredential);
         await updateProfile(userCredential.user, {
             displayName: name,
         });
-        console.log(userCredential.user.displayName);
-        
+        window.location.href = "./login.html";        
     }catch (err){
         console.log(err);
     }
@@ -24,32 +22,46 @@ const fbRegister = async (email, password, name) => {
 const fbLogin = async (email, password) => {
     try{
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log(userCredential);
-        console.log(userCredential.user.displayName)
-        console.log(auth);
+        window.location.href = "./index.html";        
     }catch (err){
         console.log(err);
     }
 }
 
-const userSignIn = () => {
-    onAuthStateChanged(auth, (user) => {
-        if(user){
-            $('#sidebar-placeholder').load('../pages/components/side_after.html');
-            const userDisplayName = document.getElementById('username');
-            userDisplayName.textContent = user.displayName;
-        }else{
-            console.log($('#sidebar-placeholder').load('../pages/components/side_before.html'));
+const userSignIn = async () => {
+    try{
+        await onAuthStateChanged(auth, (user) => {
+            if(user){
+                $('#sidebar-placeholder').load('../pages/components/side_after.html');
+                const userDisplayName = document.getElementById('username');
+                userDisplayName.innerHTML = user.displayName;
+            }else{
+                $('#sidebar-placeholder').load('../pages/components/side_before.html');
 
-        }
+            }
+        })
+    }catch (err){
+        console.log(err);
+    }
+}
+
+const userSignOut = async () => {
+    try{
+        await signOut(auth);
+    }catch (err){
+        console.log(err);
+    }
+}
+
+const clickSignOut = () => {
+    const signout = document.getElementById('signout-btn');
+    signout.addEventListener('click', () => {
+        userSignOut();
     })
 }
-
-const userSignOut = () => {
-
-}
-
 userSignIn();
+// clickSignOut();
+// userSignOut()
 
 export {
     fbRegister,
