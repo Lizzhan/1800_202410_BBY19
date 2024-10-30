@@ -13,7 +13,7 @@ import {
     signInWithEmailAndPassword,
     updateProfile,
     onAuthStateChanged,
-    signOut
+    signOut,
   } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
 
 
@@ -47,7 +47,10 @@ const fbRegister = async () => {
 const login = () => {
     loginBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        fbLogin();
+        console.log(loginEmail.value);
+        console.log(loginPwd.value);
+
+        // fbLogin();
     })
 }
 
@@ -55,13 +58,35 @@ const fbLogin = async () => {
     try{
         const lEmail = loginEmail.value;
         const lPwd = loginPwd.value;
-        const {user} = await signInWithEmailAndPassword(auth, lEmail, lPwd);
-        console.log(user);
+        const userCredential = await signInWithEmailAndPassword(auth, lEmail, lPwd);
+        console.log(lEmail);
+        console.log(userCredential);
     }catch (err){
         console.log(err);
     }
 }
 
+const userSignIn = () => {
+    auth.onAuthStateChanged(auth, (user) => {
+        if(user){
+            $('#sidebar-placeholder').load('../pages/components/side_after.html');
+            console.log(user.displayName);
+        }else{
+            $('#sidebar-placeholder').load('../pages/components/side_before.html');
+
+        }
+    })
+}
+// const signOut = async () => {
+//     try{
+//         signOut(auth);
+
+//     }catch (err){
+//         console.log(err);
+//     }
+// }
+
 
 register();
 login();
+userSignIn();

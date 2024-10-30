@@ -15,5 +15,6 @@ function hideBar(){
         }
     })
 }
+$('#sidebar-placeholder').load('../pages/components/side_before.html');
 
 hideBar();
