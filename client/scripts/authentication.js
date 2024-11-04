@@ -1,4 +1,7 @@
- import { auth } from "./firebase.js";
+ import { 
+    auth,
+    db
+ } from "./firebase.js";
  import { 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword,
@@ -6,6 +9,8 @@
     onAuthStateChanged,
     signOut,
   } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+import { getFirestore, setDoc, collection, doc,} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js'
+
 
 const fbRegister = async (email, password, name) => {
     try{
@@ -13,7 +18,14 @@ const fbRegister = async (email, password, name) => {
         await updateProfile(userCredential.user, {
             displayName: name,
         });
-        window.location.href = "./login.html";        
+        const user = userCredential.user;
+        const userDocRef = doc(db, "users", user.uid);
+        await setDoc(userDocRef, {
+            email:user.email,
+            name:user.displayName
+        })
+        // window.location.href = "./login.html";        
+        console.log(userCredential);
     }catch (err){
         console.log(err);
     }
@@ -22,7 +34,8 @@ const fbRegister = async (email, password, name) => {
 const fbLogin = async (email, password) => {
     try{
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = "./index.html";        
+        console.log(userCredential);
+        // window.location.href = "./index.html";        
     }catch (err){
         console.log(err);
     }
