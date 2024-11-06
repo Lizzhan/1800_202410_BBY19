@@ -78,5 +78,6 @@ userSignIn();
 
 export {
     fbRegister,
-    fbLogin
+    fbLogin,
+    userSignOut,
 }

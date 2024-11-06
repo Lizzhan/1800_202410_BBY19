@@ -3,7 +3,7 @@ import {auth} from "./firebase.js";
 
 //toggling display property of sidebar menu
 let menuHidden = false;
-function hideBar(){
+const hideBar = () => {
     hamMenu.addEventListener('click', ()=>{
         if(!menuHidden){
             sidebar.setAttribute('style', 'display:none');
@@ -14,4 +14,6 @@ function hideBar(){
         }
     })
 }
+
+
 hideBar();
