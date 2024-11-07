@@ -248,6 +248,10 @@ body {
     align-items: center;
 }
 
+textarea{
+    width: 400px;
+    height: 200px;
+}
 #stations{
     grid-row: 2;
     grid-column: 2/ span 4;

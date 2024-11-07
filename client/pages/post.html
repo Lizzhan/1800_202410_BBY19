@@ -68,7 +68,28 @@
         
 
         <div class="content">
-            
+            <div id="selections">
+                <label for="trains">Select The Train</label>
+                <select name="trains" id="trains">
+                    <option value="">Please Select A Train</option>
+                    <option value="Millennium Line">Millennium Line</option>
+                    <option value="Expo Line">Expo Line</option>
+                    <option value="Canada Line">Canada Line</option>
+
+                </select>
+                <br>
+                <br>
+                <label for="stations">Select Your Station</label>
+                <select name="stations" id="stations">
+
+                </select>
+            </div>
+            <br>
+            <br>
+            <div id="input-field">
+                <textarea name="detail" id="detail-input"></textarea>
+            </div>
+            <button id="submit-incident">Submit</button>
         </div>
 
         <footer id="footer">
@@ -96,7 +117,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="../scripts/authentication.js" defer></script>
     <script type="module" src="../scripts/ui.js" defer></script>
-    <script></script>
+    <script type="module" src="../scripts//post.js"></script>
 
 </body>
 
