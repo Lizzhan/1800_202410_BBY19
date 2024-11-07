@@ -69,10 +69,12 @@ const submitIncident = () => {
 const uploadToDB = async (title, detail, id) => {
     try{
     const incidentDocRef = collection(db, "incidents");
+    let date = new Date()
     await addDoc(incidentDocRef, {
         title: title,
         detail: detail,
-        stationID: id
+        stationID: id,
+        time: date
     })
     }catch (err){
         console.log(err);
