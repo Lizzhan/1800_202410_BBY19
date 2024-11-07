@@ -1,18 +1,20 @@
 import { 
     db
 } from "./firebase.js";
-import { getFirestore, setDoc, collection, doc, getDoc, getDocs, query, where} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js'
+import { getFirestore, setDoc, collection, doc, getDoc, getDocs, query, where, addDoc} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js'
 
 var train = "";
 var station = "";
 var stationID = "";
 var incidentDetail = "";
+var incidentTitle = "";
 
 const trainSelect = document.getElementById("trains");
 const stationSelect = document.getElementById("stations");
 const submitBtn = document.getElementById("submit-incident");
 
 const inputField = document.getElementById("detail-input");
+const inputTitle = document.getElementById("title-input");
 
 const trainSelected = () => {
     trainSelect.addEventListener("change", (e) => {
@@ -58,12 +60,24 @@ const submitIncident = () => {
     submitBtn.addEventListener('click', e => {
         e.preventDefault();
         incidentDetail = inputField.value;
-        console.log(incidentDetail);
+        incidentTitle = inputTitle.value;
+        uploadToDB(incidentTitle, incidentDetail, stationID);
     })
 }
 
 //submit input value to database collection where id==stationID
-
+const uploadToDB = async (title, detail, id) => {
+    try{
+    const incidentDocRef = collection(db, "incidents");
+    await addDoc(incidentDocRef, {
+        title: title,
+        detail: detail,
+        stationID: id
+    })
+    }catch (err){
+        console.log(err);
+    }
+}
 
 trainSelected();
 submitIncident();
