@@ -6,6 +6,7 @@ import { getFirestore, setDoc, collection, doc, getDocs, getDoc} from 'https://w
 
 var stationName = "";
 var train = "";
+var incidents = "";
 const container = document.querySelector('.content');
 
 const renderStation = () => {
@@ -21,6 +22,8 @@ const getTitle = async (id) => {
         const docSnap = await getDoc(docRef);
         stationName = docSnap.data().name;
         train = docSnap.data().train;
+        incidents = docSnap.data().incidents;
+
         const trainHolder = document.getElementById("train-name");
         const nameHolder = document.getElementById("station-name");
         trainHolder.innerHTML = stationName;
@@ -33,10 +36,45 @@ const getTitle = async (id) => {
         incidentContainer.appendChild(eachIncident);
         container.appendChild(incidentContainer);
 
-
+        incidents.forEach((id) => {
+            getIncidents(id);
+        })
     }catch (err){
         console.log(err);
     }
+}
+
+const getIncidents = async (id) => {
+    try{
+        const docRef = doc(db, "incidents", id);
+        const docSnap = await getDoc(docRef);
+        let title = docSnap.data().title;
+        let detail = docSnap.data().detail;
+        let time = docSnap.data().time.toDate().toLocaleString();
+        createIncidentUI(title, detail, time);
+    }catch (err){
+        console.log(err);
+    }
+}
+
+const createIncidentUI = (title, detail, time) =>{
+    const content = document.createElement('div');
+    content.classList.add('incident');
+    const postTitle = document.createElement('p');
+    postTitle.textContent = title;
+    postTitle.classList.add('title');
+    const postTime = document.createElement('span');
+    postTime.classList.add('time');
+    postTime.textContent = time;
+    const details = document.createElement('p');
+    details.classList.add('detail');
+    details.textContent = detail;
+
+    content.appendChild(postTitle);
+    content.appendChild(postTime);
+    content.appendChild(details);
+
+    container.appendChild(content);
 
 }
 
