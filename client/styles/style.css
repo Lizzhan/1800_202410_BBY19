@@ -144,7 +144,7 @@ a{
     background-color: #075BA3 !important;
     /* Light green for secondary backgrounds */
 }
-
+.container
 .navbar-light .navbar-brand,
 .navbar-light .navbar-nav .nav-link {
     color: #4C07A3;
@@ -246,11 +246,19 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 2em;
 }
 
 textarea{
     width: 400px;
     height: 200px;
+}
+
+#input-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2em;
 }
 #stations{
     grid-row: 2;

@@ -22,7 +22,8 @@ const fbRegister = async (email, password, name) => {
         const userDocRef = doc(db, "users", user.uid);
         await setDoc(userDocRef, {
             email:user.email,
-            name:user.displayName
+            name:user.displayName,
+            posts: []
         })
         window.location.href = "./login.html";        
         console.log(userCredential);
@@ -35,7 +36,8 @@ const fbLogin = async (email, password) => {
     try{
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log(userCredential);
-        window.location.href = "./index.html";        
+        // window.location.href = "./index.html";        
+        console.log(auth.currentUser);
     }catch (err){
         console.log(err);
     }
