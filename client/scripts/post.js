@@ -94,6 +94,7 @@ const uploadToDB = async (title, detail, id) => {
         console.log(incidentID);
         addToStation(stationID);
         addToUser();
+        window.location.href = `eachStation.html?docID=${stationID}`;
     }catch (err){
         console.log(err);
     }

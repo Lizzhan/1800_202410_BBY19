@@ -30,11 +30,7 @@ const getTitle = async (id) => {
         nameHolder.innerHTML = train;
 
         const incidentContainer = document.createElement('div');
-        incidentContainer.id = "incidents";
-        const eachIncident = document.createElement('div');
-        eachIncident.classList.add("each-incident");
-        incidentContainer.appendChild(eachIncident);
-        container.appendChild(incidentContainer);
+
 
         incidents.forEach((id) => {
             getIncidents(id);

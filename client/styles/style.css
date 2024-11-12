@@ -25,6 +25,14 @@ a{
     text-decoration: none;
     color: inhert;
 }
+
+button{
+    padding: 5px;
+    border: none;
+    background-color: teal;
+    cursor: pointer;
+    color: white;
+}
 .container{
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
@@ -54,6 +62,8 @@ a{
     }
 }
 
+
+/*side menu*/
 .header-menu{
     display: flex;
     flex-direction: row;
@@ -75,6 +85,8 @@ a{
     width: 20px;
 }
 
+
+/*login&signup form*/
 .user-form{
     display: flex;
     flex-direction: column;
@@ -86,7 +98,6 @@ a{
     gap: 20px;
 
 }
-
 
 .user-form input{
     padding: 10px;
@@ -102,6 +113,8 @@ a{
     color: white;
 }
 
+
+/*search bar*/
 .search-bar{
     display: flex;
     flex-direction: row;
@@ -139,7 +152,7 @@ a{
     height: auto;
 }
 
-
+/*stuff from bootstrap that I probably won't touch*/
 .bg-info {
     background-color: #075BA3 !important;
     /* Light green for secondary backgrounds */
@@ -207,6 +220,7 @@ body {
     height: auto;
 }
 
+/*mode side menu*/
 .container-menu{
     grid-column: 1 / span 1;
     grid-row: 1/ span 3;
@@ -239,6 +253,19 @@ body {
     color: white;
 }
 
+/*POST BUTTON*/
+#post{
+    grid-row: 2;
+    grid-column: 5;
+    
+}
+
+#post a{
+    text-decoration: none;
+    color: inherit;
+    /* font-weight: ; */
+}
+/*positioning for main content in each page*/
 .content{
     grid-row: 2;
     grid-column: 2 /span 3 ;
@@ -247,8 +274,10 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 2em;
+    overflow-y: scroll;
 }
 
+/*post page*/
 textarea{
     width: 400px;
     height: 200px;
@@ -260,16 +289,29 @@ textarea{
     justify-content: space-evenly;
     gap: 2em;
 }
+
+/*list page*/
 #stations{
     grid-row: 2;
     grid-column: 2/ span 4;
     overflow-y: scroll;
     /* text-align: center; */
+    margin-left: 30%;
 }
 
 #stations a{
     text-decoration: none;
+    color: inherit;
+    hover:cursor;
 }
+
+/*each station page*/
+.incident{
+    max-width: 60%;
+    overflow-wrap: break-word;
+}
+
+/*footer*/
 #footer{
     grid-row: 3;
     grid-column: 1 / span 5;
@@ -284,7 +326,6 @@ textarea{
 /*Ted's Pages CSS*/
 .container-content{
     display: grid;
-   
     grid-column: 2 / span 5;
     grid-row: 2 ;
     flex-direction: column;
