@@ -23,7 +23,8 @@ const fbRegister = async (email, password, name) => {
         await setDoc(userDocRef, {
             email:user.email,
             name:user.displayName,
-            posts: []
+            posts: [],
+            saved: []
         })
         window.location.href = "./login.html";        
         console.log(userCredential);
