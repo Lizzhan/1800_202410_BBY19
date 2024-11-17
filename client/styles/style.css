@@ -357,7 +357,7 @@ textarea{
 /*Ted's Pages CSS*/
 .container-content{
     display: grid;
-    grid-column: 3 / span 5;
+    grid-column: 2 / span 4;
     grid-row: 2 ;
     flex-direction: column;
     align-items: center;
@@ -406,7 +406,10 @@ textarea{
 
 #rederedStationList{
     grid-row: 2;
+    width: 100%;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
