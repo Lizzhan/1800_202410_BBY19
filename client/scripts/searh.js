@@ -17,13 +17,16 @@ const trimString = (str) => {
 const searchClick = async () =>  {
     let input = trimString(searchInput.value);
     console.log(input)
+    let found = false;
     const querySnapshot = await getDocs(collection(db, "stations"));
     querySnapshot.forEach((doc) => {
         let data = trimString(doc.data().name);
         if(data == input) {
             window.location.href = "eachStation.html?docID=" + doc.id;
+            found = true;
         }
     })
+    if(!found) window.alert("Station not Found");
 }
 
 searchButton.addEventListener('click', ()=>{
