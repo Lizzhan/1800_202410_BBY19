@@ -255,6 +255,10 @@ body {
     color: white;
 }
 
+#search-input{
+    width: 400px;
+}
+
 /* #search-result{
     position: absolute;
     z-index: 2;
