@@ -8,9 +8,6 @@ var stationName = "";
 var train = "";
 var incidents = "";
 const container = document.querySelector('.content');
-// const incidentContainer = document.createElement('div');
-// incidentContainer.classList.add('incident-container');
-// container.appendChild(incidentContainer);
 
 const renderStation = () => {
     let url = new URL(window.location.href);

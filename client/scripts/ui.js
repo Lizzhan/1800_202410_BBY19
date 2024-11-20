@@ -1,5 +1,6 @@
 import {sidebar, hamMenu} from "./dom.js";
 import {auth} from "./firebase.js";
+import { userSignOut } from "./authentication.js";
 
 //toggling display property of sidebar menu
 let menuHidden = false;
@@ -15,5 +16,12 @@ const hideBar = () => {
     })
 }
 
+const clickSignOut = () => {
+    const signout = document.getElementById('signout-btn');
+    signout.addEventListener('click', () => {
+        userSignOut();
+    })
+}
 
 hideBar();
+// clickSignOut();
