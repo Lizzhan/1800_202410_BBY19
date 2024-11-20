@@ -48,7 +48,7 @@
             </div>
             <div class="search-bar">
                 <img src="" alt="" class="bi bi-search">
-                <input type="text" id="search-input" pattern="[A-Za-z]+" required placeholder="Please Enter Full Station Name">
+                <input type="text" id="search-input" pattern="[A-Za-z]+" required placeholder="Enter Full Station Name">
                 <button type="button" id="search-button">Search</button>
             </div>
         </div>
@@ -63,6 +63,14 @@
         </div>
 
         <div class="content">
+
+            <!--video background-->
+            <video autoplay muted loop id="background-video">
+                <source src="../images/videos/transitbg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+
+
             <!-- <div id="search-result"></div> -->
             <div class="hero">
                 <div class="banner">
@@ -72,7 +80,11 @@
                     <img src="../images/logo_transparent.png" alt="ALERTOGO" id="alertogo">
                 </div>
             </div>
-            <button id="post"><a href="./post.html">Post</a></button>
+            <h2>QUICK START</h2>
+            <div>Search station above to see active incident</div>
+            <div>or</div> 
+                <div>Report incident by clicking the button below</div>
+            <button id="post"><a href="./post.html">Report Incident</a></button>
         </div>
 
         <footer id="footer">
