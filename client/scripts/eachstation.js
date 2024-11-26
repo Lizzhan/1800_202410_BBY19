@@ -2,21 +2,19 @@ import {
     db
 } from "./firebase.js";
 
-import { getFirestore, setDoc, collection, doc, getDocs, getDoc} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js'
+import { getFirestore, setDoc, collection, doc, getDocs, getDoc} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js';
+import "./node_modules/mapbox-gl/dist/mapbox-gl.js";
+
 
 var stationName = "";
 var train = "";
 var incidents = "";
 const container = document.querySelector('.content');
-const incidentContainer = document.createElement('div');
-incidentContainer.classList.add('incident-container');
-container.appendChild(incidentContainer);
 
 const renderStation = () => {
     let url = new URL(window.location.href);
     let id = url.searchParams.get("docID");
     getTitle(id);
-
 }
 
 const getTitle = async (id) => {
@@ -29,12 +27,8 @@ const getTitle = async (id) => {
 
         const trainHolder = document.getElementById("train-name");
         const nameHolder = document.getElementById("station-name");
-        trainHolder.innerHTML = stationName;
-        nameHolder.innerHTML = train;
-
-        const incidentContainer = document.createElement('div');
-
-
+        trainHolder.textContent = stationName;
+        nameHolder.textContent = train;
         incidents.forEach((id) => {
             getIncidents(id);
         })
@@ -61,20 +55,38 @@ const createIncidentUI = (title, detail, time) =>{
     content.classList.add('incident');
     const postTitle = document.createElement('p');
     postTitle.textContent = title;
+    postTitle.setAttribute('style', 'font-weight:bold');
     postTitle.classList.add('title');
     const postTime = document.createElement('span');
     postTime.classList.add('time');
     postTime.textContent = time;
+    postTime.setAttribute('style', 'font-weight:bold');
+
     const details = document.createElement('p');
     details.classList.add('detail');
     details.textContent = detail;
+    const straightLine = document.createElement('hr');
 
-    content.appendChild(postTitle);
+    content.appendChild(straightLine);
     content.appendChild(postTime);
+    content.appendChild(postTitle);
     content.appendChild(details);
 
-    incidentContainer.appendChild(content);
+    container.appendChild(content);
 
 }
 
+const createMap = () => {
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGVzbGllemhxeSIsImEiOiJjbTN3ZGk0cWMxNDZ0MmlxMnQyNmt2MG5tIn0.RlwrbiwwyARn4FaXfUGJgw';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+    });
+}
+
+
+
+
+
 renderStation()
+createMap();

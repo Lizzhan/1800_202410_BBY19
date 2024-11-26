@@ -37,7 +37,7 @@ const fbLogin = async (email, password) => {
     try{
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log(userCredential);
-        // window.location.href = "./index.html";        
+        window.location.href = "./index.html";        
         console.log(auth.currentUser);
     }catch (err){
         console.log(err);
@@ -51,9 +51,11 @@ const userSignIn = async () => {
                 $('#sidebar-placeholder').load('../pages/components/side_after.html');
                 const userDisplayName = document.getElementById('username');
                 userDisplayName.innerHTML = user.displayName;
+                $('#sidebar-placeholder').on('click', '#signout-btn', () => {
+                    userSignOut()
+                });
             }else{
                 $('#sidebar-placeholder').load('../pages/components/side_before.html');
-
             }
         })
     }catch (err){
@@ -76,7 +78,6 @@ const clickSignOut = () => {
     })
 }
 userSignIn();
-// clickSignOut();
 // userSignOut()
 
 export {
