@@ -346,16 +346,6 @@ textarea{
     overflow-wrap: break-word;
     
 }
-.incident-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    overflow-y: auto;
-    /* height: 100%; */
-    /* margin-left: 40%; */
-}
 
 /*footer*/
 #footer{

@@ -10,6 +10,7 @@ var stationName = "";
 var train = "";
 var incidents = "";
 const container = document.querySelector('.content');
+var mapShown = false;
 
 const renderStation = () => {
     let url = new URL(window.location.href);
@@ -77,6 +78,10 @@ const createIncidentUI = (title, detail, time) =>{
 }
 
 const createMap = () => {
+    // const mapBox = document.createElement('div');
+    // mapBox.id = "map";
+    // container.appendChild(mapBox);
+    // mapBox.setAttribute('style', 'width: 400px, height: 300px')
     mapboxgl.accessToken = 'pk.eyJ1IjoibGVzbGllemhxeSIsImEiOiJjbTN3ZGk0cWMxNDZ0MmlxMnQyNmt2MG5tIn0.RlwrbiwwyARn4FaXfUGJgw';
     var map = new mapboxgl.Map({
     container: 'map',
@@ -87,6 +92,5 @@ const createMap = () => {
 
 
 
-
-renderStation()
 createMap();
+renderStation()
