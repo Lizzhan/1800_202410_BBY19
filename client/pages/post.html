@@ -84,8 +84,8 @@
 
             <div id="selections">
                 <label for="trains">Select Train</label>
-                <select name="trains" id="trains">
-                    <option value="">Select Train</option>
+                <select class="form-select" name="trains" id="trains">
+                    <option selected>Select Train</option>
                     <option value="Millennium Line">Millennium Line</option>
                     <option value="Expo Line">Expo Line</option>
                     <option value="Canada Line">Canada Line</option>
@@ -93,14 +93,14 @@
                 </select>
                 <br>
                 <label for="stations">Select Your Station</label>
-                <select name="stations" id="stations">
+                <select class="form-select" name="stations" id="stations">
 
                 </select>
             </div>
 
             <div id="input-field">
-                <input type="text" placeholder="What happen in gist?" id="title-input" maxlength="60">
-                <textarea name="detail" placeholder="More detail please..." id="detail-input" maxlength="400"></textarea>
+                <input type="text" class="form-control" placeholder="What happen in gist?" id="title-input" maxlength="60">
+                <textarea name="detail" class="form-control" placeholder="More detail please..." id="detail-input" maxlength="400"></textarea>
             </div>
             <button id="submit-incident">Post Incident</button>
         </div>
