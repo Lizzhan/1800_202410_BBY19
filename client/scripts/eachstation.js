@@ -2,7 +2,9 @@ import {
     db
 } from "./firebase.js";
 
-import { getFirestore, setDoc, collection, doc, getDocs, getDoc} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js'
+import { getFirestore, setDoc, collection, doc, getDocs, getDoc} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js';
+import "./node_modules/mapbox-gl/dist/mapbox-gl.js";
+
 
 var stationName = "";
 var train = "";
@@ -13,7 +15,6 @@ const renderStation = () => {
     let url = new URL(window.location.href);
     let id = url.searchParams.get("docID");
     getTitle(id);
-
 }
 
 const getTitle = async (id) => {
@@ -28,7 +29,6 @@ const getTitle = async (id) => {
         const nameHolder = document.getElementById("station-name");
         trainHolder.textContent = stationName;
         nameHolder.textContent = train;
-
         incidents.forEach((id) => {
             getIncidents(id);
         })
@@ -76,4 +76,17 @@ const createIncidentUI = (title, detail, time) =>{
 
 }
 
+const createMap = () => {
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGVzbGllemhxeSIsImEiOiJjbTN3ZGk0cWMxNDZ0MmlxMnQyNmt2MG5tIn0.RlwrbiwwyARn4FaXfUGJgw';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+    });
+}
+
+
+
+
+
 renderStation()
+createMap();
