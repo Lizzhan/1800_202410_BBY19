@@ -264,7 +264,7 @@ body {
 }
 
 #search-input {
-    width: 400px;
+    width: 70%;
 }
 
 /* #search-result{
@@ -452,9 +452,9 @@ textarea {
     margin-top: 50%;
   }
 
-  .search-bar {
+  /* .search-bar {
     margin-left: 30%;
-  }
+  } */
 
 #detail-input {
     width: 80%;
