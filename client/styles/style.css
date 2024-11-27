@@ -341,10 +341,18 @@ textarea{
     width: 18px;
 }
 /*each station page*/
+#info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+}
+
 .incident{
     width: 60%;
     overflow-wrap: break-word;
-    
+
 }
 
 /*footer*/

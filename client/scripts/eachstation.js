@@ -9,6 +9,8 @@ import "./node_modules/mapbox-gl/dist/mapbox-gl.js";
 var stationName = "";
 var train = "";
 var incidents = "";
+var longitude = "";
+var latitude = "";
 const container = document.querySelector('.content');
 var mapShown = false;
 
@@ -25,7 +27,10 @@ const getTitle = async (id) => {
         stationName = docSnap.data().name;
         train = docSnap.data().train;
         incidents = docSnap.data().incidents;
-
+        latitude = docSnap.data().latitude;
+        longitude = docSnap.data().longitude;
+        console.log(docSnap.data())
+        createMap();
         const trainHolder = document.getElementById("train-name");
         const nameHolder = document.getElementById("station-name");
         trainHolder.textContent = stationName;
@@ -45,6 +50,7 @@ const getIncidents = async (id) => {
         let title = docSnap.data().title;
         let detail = docSnap.data().detail;
         let time = docSnap.data().time.toDate().toLocaleString();
+
         createIncidentUI(title, detail, time);
     }catch (err){
         console.log(err);
@@ -85,12 +91,14 @@ const createMap = () => {
     mapboxgl.accessToken = 'pk.eyJ1IjoibGVzbGllemhxeSIsImEiOiJjbTN3ZGk0cWMxNDZ0MmlxMnQyNmt2MG5tIn0.RlwrbiwwyARn4FaXfUGJgw';
     var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [longitude, latitude],
+    zoom: 15
     });
 }
 
 
 
 
-createMap();
 renderStation()
+// createMap();
