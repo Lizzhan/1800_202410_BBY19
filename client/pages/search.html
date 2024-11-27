@@ -3,6 +3,7 @@
 
 <head>
     <title>ALERTOGO</title>
+    <link rel="icon" type="image/x-icon" href="/client/images/logo_transparent_small.png">
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -31,7 +32,7 @@
 </head>
 
 <body>
-
+    <div id="overlay"></div> <!--Full screen transparent overlay-->
     <!--This is the side bar menu-->
     <div class="container">
         <div class="header">
@@ -49,8 +50,8 @@
             </div>
             <div class="search-bar">
                 <img src="" alt="" class="bi bi-search">
-                <input type="text">
-                <button type="button" id="search-button">Search</button>
+                <input class="form-control me-2" type="text" id="search-input" pattern="[A-Za-z]+" required placeholder="Enter Full Station Name">
+                <button class="btn btn-success" type="button" id="search-button">Search</button>
             </div>
         </div>
         <div class="container-menu">

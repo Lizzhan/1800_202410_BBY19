@@ -3,6 +3,7 @@
 
 <head>
     <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="/client/images/logo_transparent_small.png">
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -33,6 +34,13 @@
 </head>
 
 <body>
+    <div id="overlay"></div> <!--Full screen transparent overlay-->
+
+    <video autoplay muted loop id="background-video">
+        <source src="../images/videos/transitbg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
 
     <!--This is the side bar menu-->
     <div class="container">
@@ -64,7 +72,7 @@
             <form class="user-form" id="login-form">
                 <input type="text" placeholder="username" id="login-username">
                 <input type="password" placeholder="password" id="login-password">
-                <button id="login-button">Login</button>
+                <button class="btn btn-success" id="login-button">Login</button>
             </form>
 
         </div>
