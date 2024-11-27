@@ -32,6 +32,13 @@
 </head>
 
 <body>
+    <div id="overlay"></div> <!--Full screen transparent overlay-->
+
+    <video autoplay muted loop id="background-video">
+        <source src="../images/videos/transitbg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
 
     <!--This is the side bar menu-->
     <div class="container">
@@ -63,7 +70,7 @@
                 <input type="text" placeholder="Your Name" id="register-name">
                 <input type="text" placeholder="email" id="register-username">
                 <input type="password" placeholder="password" id="register-password">
-                <button id="register-button">Register</button>
+                <button class="btn btn-success" id="register-button">Register</button>
             </form>
         </div>
 
