@@ -81,7 +81,12 @@ button {
     text-align: center;
 }
 
-
+.menu-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 /*side menu*/
 .header-menu {
     display: flex;
@@ -103,8 +108,11 @@ button {
 #hamburger {
     height: 20px;
     width: 20px;
+    transition: transform 0.3s ease;  /* Smooth transition for rotation */
 }
-
+#hamburger:hover {
+    transform: rotate(90deg);  /* Rotate 90 degrees */
+}
 
 /*login&signup form*/
 .user-form {
@@ -318,6 +326,10 @@ body {
     /* margin-top: -20%; */
 }
 
+#intro{
+    text-align: center;
+}
+
 
 /*post page*/
 textarea {
@@ -385,6 +397,11 @@ textarea {
     overflow-y: auto;
     /* height: 100%; */
     /* margin-left: 40%; */
+}
+
+#icon{
+    height: 16px;
+    width: 16px;
 }
 
 /*footer*/

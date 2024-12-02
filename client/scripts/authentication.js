@@ -40,7 +40,6 @@ const fbRegister = async (email, password, name) => {
 const fbLogin = async (email, password) => {
     try{
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log(userCredential);
         //redirect
         window.location.href = "./index.html";        
         console.log(auth.currentUser);
@@ -56,11 +55,13 @@ const userSignIn = async () => {
             //if user is logged in
             if(user){
                 $('#sidebar-placeholder').load('../pages/components/side_after.html');
-                const userDisplayName = document.getElementById('username');
-                userDisplayName.innerHTML = `, ${user.displayName}`;
                 $('#sidebar-placeholder').on('click', '#signout-btn', () => {
-                    userSignOut()
+                    userSignOut();
+                    window.location.href = "./index.html";        
                 });
+
+                const userDisplayName = document.getElementById('username');
+                userDisplayName.innerHTML = `${user.displayName}`;
             //if user is not logged in
             }else{
                 $('#sidebar-placeholder').load('../pages/components/side_before.html');
