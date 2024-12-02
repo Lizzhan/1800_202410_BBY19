@@ -15,6 +15,7 @@ var incidentTitle = "";
 var uid = "";
 var incidentID = "";
 
+//DOM creation
 const trainSelect = document.getElementById("trains");
 const stationSelect = document.getElementById("stations");
 const submitBtn = document.getElementById("submit-incident");
@@ -22,6 +23,8 @@ const submitBtn = document.getElementById("submit-incident");
 const inputField = document.getElementById("detail-input");
 const inputTitle = document.getElementById("title-input");
 
+
+//gets user id
 onAuthStateChanged(auth, (user) => {
     if(user){
         uid = user.uid;
@@ -31,10 +34,12 @@ onAuthStateChanged(auth, (user) => {
     }
 })
 
+//add event listenr to train selection, then fetch that train's stations fromm db
 const trainSelected = () => {
     trainSelect.addEventListener("change", (e) => {
-    console.log(e.target.value);uid
+    //grabs user input
     train = e.target.value;
+    //gets station
     getStations();
     })
     stationSelect.addEventListener("change", e => {
@@ -45,12 +50,16 @@ const trainSelected = () => {
 }
 
 
+//gets station
+//iterate throuhg the staions collection
 const getStations = async () => {
     stationSelect.innerHTML = "";
+    //gets information of staion
     const q = query(collection(db, "stations"), where("train", "==", train));
     const querySnapshot = await getDocs(q);
     const empty = document.createElement('option');
     stationSelect.appendChild(empty);
+    //DOM creation to be added to page
     querySnapshot.forEach((station) => {
         const option = document.createElement('option');
         option.value = station.data().name;
@@ -59,6 +68,7 @@ const getStations = async () => {
     })
 }
 
+//gets ID of the selected station from DB
 const getStationID = async (name) => {
     const q = collection(db, "stations");
     const querySnapshot = await getDocs(q);
@@ -70,15 +80,20 @@ const getStationID = async (name) => {
     })
 }
 
+//Post
 const submitIncident = () => {
+    //grabs user input
     submitBtn.addEventListener('click', e => {
         e.preventDefault();
         incidentDetail = inputField.value;
         incidentTitle = inputTitle.value;
+        //pass input to database
         uploadToDB(incidentTitle, incidentDetail, stationID);
     })
 }
 
+//adds incident report to incidents database
+//Incident ID is then saved to the current user's and the station's incidents array
 const uploadToDB = async (title, detail, id) => {
     try{
         const incidentDocRef = collection(db, "incidents");
@@ -100,6 +115,7 @@ const uploadToDB = async (title, detail, id) => {
     }
 }
 
+//add incident id to station's incident array
 const addToStation = async (stationID) => {
     try{
         const stationRef = doc(db, "stations", stationID);
@@ -113,6 +129,7 @@ const addToStation = async (stationID) => {
     
 }
 
+//add incident id to user's incident array
 const addToUser = async () => {
     try{
         const userRef = doc(db, "users", uid);

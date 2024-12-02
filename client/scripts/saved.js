@@ -11,6 +11,7 @@ const name = document.getElementById("name");
 var userName = "";
 var uid = "";
 
+//only gets saved information if user is logged in.
 onAuthStateChanged(auth, (user) => {
     if(user){
         userName = user.displayName;

@@ -12,14 +12,16 @@ var incidents = "";
 var longitude = "";
 var latitude = "";
 const container = document.querySelector('.content');
-var mapShown = false;
 
+//get station's information from db based on the ID in url.
 const renderStation = () => {
     let url = new URL(window.location.href);
     let id = url.searchParams.get("docID");
+    //ID passed as parameter into this function to get detailed information.
     getTitle(id);
 }
 
+//getting detailed information and add to page via DOM
 const getTitle = async (id) => {
     const docRef = doc(db, "stations", id);
     try{
@@ -29,12 +31,13 @@ const getTitle = async (id) => {
         incidents = docSnap.data().incidents;
         latitude = docSnap.data().latitude;
         longitude = docSnap.data().longitude;
-        console.log(docSnap.data())
+        //renders mapbox
         createMap();
         const trainHolder = document.getElementById("train-name");
         const nameHolder = document.getElementById("station-name");
         trainHolder.textContent = stationName;
         nameHolder.textContent = train;
+        //iterate through incidents array in DB and add to page
         incidents.forEach((id) => {
             getIncidents(id);
         })
@@ -43,6 +46,7 @@ const getTitle = async (id) => {
     }
 }
 
+//fetch incident details and add to page via DOM
 const getIncidents = async (id) => {
     try{
         const docRef = doc(db, "incidents", id);
@@ -50,13 +54,14 @@ const getIncidents = async (id) => {
         let title = docSnap.data().title;
         let detail = docSnap.data().detail;
         let time = docSnap.data().time.toDate().toLocaleString();
-
+        //DOM creation
         createIncidentUI(title, detail, time);
     }catch (err){
         console.log(err);
     }
 }
 
+//DOM creation
 const createIncidentUI = (title, detail, time) =>{
     const content = document.createElement('div');
     content.classList.add('incident');
@@ -83,11 +88,8 @@ const createIncidentUI = (title, detail, time) =>{
 
 }
 
+//creates map
 const createMap = () => {
-    // const mapBox = document.createElement('div');
-    // mapBox.id = "map";
-    // container.appendChild(mapBox);
-    // mapBox.setAttribute('style', 'width: 400px, height: 300px')
     mapboxgl.accessToken = 'pk.eyJ1IjoibGVzbGllemhxeSIsImEiOiJjbTN3ZGk0cWMxNDZ0MmlxMnQyNmt2MG5tIn0.RlwrbiwwyARn4FaXfUGJgw';
     var map = new mapboxgl.Map({
     container: 'map',
@@ -101,4 +103,3 @@ const createMap = () => {
 
 
 renderStation()
-// createMap();
