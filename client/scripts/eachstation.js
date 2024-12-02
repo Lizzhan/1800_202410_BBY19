@@ -2,7 +2,7 @@ import {
     db
 } from "./firebase.js";
 
-import { getFirestore, setDoc, collection, doc, getDocs, getDoc} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js';
+import { getFirestore, setDoc, collection, doc, getDocs, getDoc, orderBy} from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js';
 import "./node_modules/mapbox-gl/dist/mapbox-gl.js";
 
 

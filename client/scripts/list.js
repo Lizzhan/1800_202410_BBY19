@@ -1,7 +1,7 @@
 import {
     auth, db
 } from "./firebase.js";
-import { getFirestore, setDoc, collection, doc, getDoc, getDocs, query, where, addDoc, updateDoc, arrayUnion, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js'
+import { getFirestore, setDoc, collection, doc, getDoc, getDocs, query, where, addDoc, updateDoc, arrayUnion, arrayRemove, orderBy } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js'
 import {
     onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
@@ -198,7 +198,7 @@ const addClicks = () => {
 }
 const renderCanada = async () => {
     //gets information of staion
-    const q = query(collection(db, "stations"), where("train", "==", "Canada Line"));
+    const q = query(collection(db, "stations"), where("train", "==", "Canada Line"), orderBy("name", "asc"));
     const querySnapshot = await getDocs(q);
     //DOM creation to be added to page
     querySnapshot.forEach((station) => {
@@ -212,6 +212,7 @@ const renderCanada = async () => {
         cdropDown.appendChild(card);
         const icon = document.createElement('img');
         icon.classList.add("bookmark");
+        icon.setAttribute('id', 'icon')
         icon.src = "../images/icon/unsaved.png";
         icon.addEventListener('click', (e) => {
             e.preventDefault();
@@ -224,7 +225,7 @@ const renderCanada = async () => {
 }
 const renderExpo = async () => {
     //gets information of staion
-    const q = query(collection(db, "stations"), where("train", "==", "Expo Line"));
+    const q = query(collection(db, "stations"), where("train", "==", "Expo Line"),  orderBy("name", "asc"));
     const querySnapshot = await getDocs(q);
     //DOM creation to be added to page
     querySnapshot.forEach((station) => {
@@ -238,6 +239,7 @@ const renderExpo = async () => {
         edropDown.appendChild(card);
         const icon = document.createElement('img');
         icon.classList.add("bookmark");
+        icon.setAttribute('id', 'icon')
         icon.src = "../images/icon/unsaved.png";
         icon.addEventListener('click', (e) => {
             e.preventDefault();
@@ -249,7 +251,7 @@ const renderExpo = async () => {
 }
 const renderMillennium = async () => {
     //gets information of staion
-    const q = query(collection(db, "stations"), where("train", "==", "Millennium Line"));
+    const q = query(collection(db, "stations"), where("train", "==", "Millennium Line"),  orderBy("name", "asc"));
     const querySnapshot = await getDocs(q);
     //DOM creation to be added to page
     querySnapshot.forEach((station) => {
