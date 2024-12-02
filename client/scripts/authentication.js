@@ -57,7 +57,7 @@ const userSignIn = async () => {
             if(user){
                 $('#sidebar-placeholder').load('../pages/components/side_after.html');
                 const userDisplayName = document.getElementById('username');
-                userDisplayName.innerHTML = user.displayName;
+                userDisplayName.innerHTML = `, ${user.displayName}`;
                 $('#sidebar-placeholder').on('click', '#signout-btn', () => {
                     userSignOut()
                 });

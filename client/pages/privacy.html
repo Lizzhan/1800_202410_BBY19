@@ -49,44 +49,48 @@
             </div>
             <div class="search-bar">
                 <img src="" alt="" class="bi bi-search">
-                <input class="form-control me-2" type="text" id="search-input" pattern="[A-Za-z]+" required placeholder="Enter Full Station Name">
-                <button class="btn btn-success" type="button" id="search-button">Search</button>
+                <input type="text" id="search-input" pattern="[A-Za-z]+" required>
+                <button type="button" id="search-button">Search</button>
             </div>
         </div>
-        
 
         <div class="container-menu">
-                <div id="ham-menu">
-                    <img src="../images/icon/more.png" alt="" id="hamburger">
-                </div>
-                <div id="sidebar-placeholder"></div>
+            <div id="ham-menu">
+                <img src="../images/icon/more.png" alt="" id="hamburger">
+            </div>
+            <div id="sidebar-placeholder"></div>
 
         </div>
+
+
+        <!-- content starts here -->
+
+
+        
 
         <div class="content">
-
-            <!--video background-->
-            <video autoplay muted loop id="background-video">
-                <source src="../images/videos/transitbg.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-
-
-            <!-- <div id="search-result"></div> -->
-            <div class="hero">
-                <div class="banner">
-                    <h6>Welcome To ALERTOGO<span id="username"></span></h6> 
-                    <br>    
-                    
-                    <img src="../images/logo_transparent.png" alt="ALERTOGO" id="alertogo">
-                </div>
-            </div>
-            <h2>QUICK START</h2>
-            <div>Search station above to see active incident</div>
-            <div>or</div> 
-                <div>Report incident by clicking the button below</div>
-            <button id="post"><a href="./post.html">Report Incident</a></button>
+            <h5 id="disclaimer">
+                At ALERTOGO, we value and respect your privacy. The information shared by users on our platform is provided voluntarily, and we do not collect, store, or share personal data unless explicitly stated. We encourage users to avoid sharing sensitive personal information when posting content.
+                <br>
+                <br>
+                Please be aware that any content submitted to ALERTOGO may be publicly accessible. Users are responsible for their own content and the information they share. We are not responsible for any misuse of personal information that occurs through user interactions on the platform.
+                <br>
+                <br>
+                For users who may be required to provide certain information for specific services (e.g., account registration, contact), we will make it clear what data is necessary and how it will be used. We strive to adhere to privacy and data protection regulations applicable to our platform.
+                <br>
+                <br>
+                By using ALERTOGO, you agree to this privacy policy and acknowledge that we are not liable for the actions of third parties with whom you may interact through the site.
+            </h5>
         </div>
+
+        <video autoplay muted loop id="background-video">
+            <source src="../images/videos/transitbg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+   
+        <div id="container" class="row row-cols-1 g-4"></div>
+
 
         <footer id="footer">
             <div class="menu-items">
