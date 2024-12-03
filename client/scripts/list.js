@@ -15,6 +15,7 @@ const millennium = document.getElementById('millennium');
 
 var uid = "";
 
+//get user id
 onAuthStateChanged(auth, (user) => {
     if (user) {
         uid = user.uid;
@@ -100,6 +101,7 @@ onAuthStateChanged(auth, (user) => {
 // };
 
 
+//adds station to user's saved array in db
 const addToSave = async(uid, stationID) => {
     try{
         const userRef = doc(db, "users", uid);
@@ -185,6 +187,7 @@ const cdropDown = document.getElementById('cdrop-down');
 const edropDown = document.getElementById('edrop-down');
 const mdropDown = document.getElementById('mdrop-down');
 
+//add event listener to toggle display proeperty of dropdown div
 const addClicks = () => {
     canada.addEventListener('click', () => {
         cdropDown.classList.toggle('show');
