@@ -23,7 +23,6 @@
 
 
     <!-- Other libraries go here -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Link to styles of your own -->
      <link rel="stylesheet" href="../styles/style.css">
@@ -39,27 +38,41 @@
             <!-- <img id="app-logo" src="./images/logo_transparent.png" alt="ALERTOGO Logo"> -->
             <div class="header-menu">
                 <div class="menu-items">
-                    <a href="./index.html">Home</a>
+                    <a href="./index.html" style="text-align: center;">
+                        <img src="../images/icon/house-door-fill.svg" alt="" id="icon">
+                        <br>
+                        Home
+                    </a>
                 </div>
                 <div class="menu-items">
-                    <a href="">Ongoing</a>
+                    <a href="https://x.com/TransLink" style="text-align: center;">
+                        <img src="../images/icon/twitter-x.svg" alt="" id="icon">
+                        <br>
+                        Ongoing</a>
                 </div>
                 <div class="menu-items">
-                    <a href="https://x.com/TransLink">Stations</a>
+                    <a href="./list.html" style="text-align: center;">
+                        <img src="../images/icon/train-front-fill.svg" alt="" id="icon">
+                        <br>
+                        Stations
+                    </a>
                 </div>
             </div>
             <div class="search-bar">
                 <img src="" alt="" class="bi bi-search">
-                <input class="form-control me-2" type="text" id="search-input" pattern="[A-Za-z]+" required placeholder="Enter Full Station Name">
-                <button class="btn btn-success" type="button" id="search-button">Search</button>
+                <input type="text" id="search-input" pattern="[A-Za-z]+" required>
+                <button type="button" id="search-button">Search</button>
             </div>
         </div>
+
         <div class="container-menu">
             <div id="ham-menu">
                 <img src="../images/icon/more.png" alt="" id="hamburger">
             </div>
             <div id="sidebar-placeholder"></div>
-         </div>
+
+        </div>
+
 
         <!-- content starts here -->
 
@@ -67,14 +80,16 @@
         
 
         <div class="content">
-            <div class="container-map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2608.7342222707794!2d-123.14002524316295!3d49.16765279180919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54860acb2377871b%3A0x62f3b5c87885456e!2sRichmond%E2%80%93Brighouse!5e0!3m2!1sen!2sca!4v1730542520662!5m2!1sen!2sca"
-                    width="100%" height="75%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    
-                <button class="btn btn-primary" type="button">Search</button>
+            <h1>UNDER CONSTRUCTION <br>
+                COME BACK LATER
+            </h1>
+            <img src="../images/enjenir.webp" alt="">
         </div>
+        <!--video background-->
+        <video autoplay muted loop id="background-video">
+            <source src="../images/videos/transitbg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
         <footer id="footer">
             <div class="menu-items">
@@ -108,9 +123,10 @@
     <!---------------------------------------------->
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="../scripts/authentication.js" defer></script>
     <script type="module" src="../scripts/ui.js" defer></script>
-    <script></script>
+    <script type="module" src="../scripts/searh.js"></script>
 
 </body>
 
