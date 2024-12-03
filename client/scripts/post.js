@@ -115,12 +115,14 @@ const uploadToDB = async (title, detail, id) => {
     }
 }
 
-//add incident id to station's incident array
+//add incident id to the front of the incident array
 const addToStation = async (stationID) => {
     try{
         const stationRef = doc(db, "stations", stationID);
+        let arr = await getIncidentArr(stationID);
+        arr.unshift(incidentID);
         await updateDoc(stationRef, {
-            incidents: arrayUnion(incidentID)
+            incidents: arr
         })
 
     }catch(err){
@@ -129,13 +131,26 @@ const addToStation = async (stationID) => {
     
 }
 
-//add incident id to user's incident array
+//add incident id to user's incident array by updating the incident array
 const addToUser = async () => {
     try{
         const userRef = doc(db, "users", uid);
         await updateDoc(userRef, {
             posts: arrayUnion(incidentID)
         });
+    }catch (err){
+        console.log(err);
+    }
+}
+
+//get incident array
+const getIncidentArr = async (stationID)=> {
+    try{
+        const docRef = doc(db, "stations", stationID);
+        const docSnap = await getDoc(docRef);
+        const arr = docSnap.data().incidents;
+        console.log(arr);
+        return arr;
     }catch (err){
         console.log(err);
     }
