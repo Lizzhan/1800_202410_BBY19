@@ -79,7 +79,7 @@ const renderCanada = async () => {
         icon.addEventListener('click', (e) => {
             e.preventDefault();
             icon.src = "../images/icon/saved.png";
-            addToSave(uid, doc.id);
+            addToSave(uid, station.id);
         })
         card.appendChild(icon);
         
@@ -106,7 +106,7 @@ const renderExpo = async () => {
         icon.addEventListener('click', (e) => {
             e.preventDefault();
             icon.src = "../images/icon/saved.png";
-            addToSave(uid, doc.id);
+            addToSave(uid, station.id);
         })
         card.appendChild(icon);
     })
@@ -132,7 +132,7 @@ const renderMillennium = async () => {
         icon.addEventListener('click', (e) => {
             e.preventDefault();
             icon.src = "../images/icon/saved.png";
-            addToSave(uid, doc.id);
+            addToSave(uid, station.id);
         })
         card.appendChild(icon);
     })
