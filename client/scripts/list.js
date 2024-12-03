@@ -13,6 +13,11 @@ const expo = document.getElementById('expo');
 const millennium = document.getElementById('millennium');
 
 
+//DOM creation of stations
+const cdropDown = document.getElementById('cdrop-down');
+const edropDown = document.getElementById('edrop-down');
+const mdropDown = document.getElementById('mdrop-down');
+
 var uid = "";
 
 //get user id
@@ -24,82 +29,6 @@ onAuthStateChanged(auth, (user) => {
         console.log("no user")
     }
 })
-
-// const renderList = async () => {
-//     const querySnapshot = await getDocs(collection(db, "stations"));
-//     querySnapshot.forEach((doc) => {
-//         const card = document.createElement('div');
-//         card.classList.add('card');
-//         const content = document.createElement("div");
-//         content.classList.add('station-content');
-//         const icon = document.createElement('img');
-//         icon.classList.add("bookmark");
-//         icon.src = "../images/icon/unsaved.png";
-//         icon.addEventListener('click', (e) => {
-//             e.preventDefault();
-//             icon.src = "../images/icon/saved.png";
-//             addToSave(uid, doc.id);
-//         })
-
-//         const link = document.createElement('a');
-//         link.innerHTML = doc.data().name;
-//         link.href = "eachStation.html?docID=" + doc.id;
-
-//         content.appendChild(link);
-//         content.appendChild(icon);
-//         container.appendChild(content);
-//     });
-
-// }
-
-// const renderList = async () => {
-//     const querySnapshot = await getDocs(collection(db, "stations"));
-//     querySnapshot.forEach((doc) => {
-//         const stationData = doc.data();
-
-//         // Create the column div
-//         const colDiv = document.createElement('div');
-//         colDiv.classList.add('col');
-
-//         // Create the card div
-//         const cardDiv = document.createElement('div');
-//         cardDiv.classList.add('card', 'card-cover', 'h-100', 'overflow-hidden', 'text-bg-dark', 'rounded-4', 'shadow-lg');
-//         cardDiv.style.backgroundImage = `url('/client/images/station/default.png')`;
-
-//         // Create the content div inside the card
-//         const contentDiv = document.createElement('div');
-//         contentDiv.classList.add('d-flex', 'flex-column', 'h-100', 'pb-3', 'text-shadow-1');
-
-//         // Add station name as a link
-//         const link = document.createElement('a');
-//         link.innerHTML = stationData.name;
-//         link.href = "eachStation.html?docID=" + doc.id;
-//         link.classList.add('text-white', 'fw-bold', 'display-6', 'lh-1', 'mb-4', 'mt-5'); // Styling to match Bootstrap headings
-
-//         // Add bookmark icon
-//         const bookmarkIcon = document.createElement('img');
-//         bookmarkIcon.classList.add('bookmark', 'border', 'border-white');
-//         bookmarkIcon.src = "../images/icon/unsaved.png";
-//         bookmarkIcon.style.cursor = "pointer";
-//         bookmarkIcon.addEventListener('click', (e) => {
-//             e.preventDefault();
-//             bookmarkIcon.src = "../images/icon/saved.png";
-//             addToSave(uid, doc.id);
-//         });
-
-//         // Append elements
-//         contentDiv.appendChild(link); // Add the link as the heading
-//         contentDiv.appendChild(bookmarkIcon); // Add the bookmark icon
-
-//         cardDiv.appendChild(contentDiv);
-//         colDiv.appendChild(cardDiv);
-
-//         // Append the column to the container
-//         const container = document.getElementById('container'); 
-//         container.appendChild(colDiv);
-//     });
-// };
-
 
 //adds station to user's saved array in db
 const addToSave = async(uid, stationID) => {
@@ -116,76 +45,6 @@ const addToSave = async(uid, stationID) => {
     }
 }
 
-// renderList();
-
-// const renderList = async () => {
-//     const querySnapshot = await getDocs(collection(db, "stations"));
-
-//     // Define the background images for each train
-//     const trainBackgrounds = {
-//         "Millennium Line": "../images/station/photo1.png",
-//         "Canada Line": "../images/station/photo2.png",
-//         "Expo Line": "../images/station/photo3.png"
-//     };
-
-//     querySnapshot.forEach((doc) => {
-//         const stationData = doc.data();
-
-//         // Create the column div
-//         const colDiv = document.createElement('div');
-//         colDiv.classList.add('col');
-
-//         // Create the card div
-//         const cardDiv = document.createElement('div');
-//         cardDiv.classList.add('card', 'card-cover', 'h-100', 'overflow-hidden', 'text-bg-dark', 'rounded-4', 'shadow-lg');
-
-//         // Determine the background image based on the station's train
-//         const backgroundImage = trainBackgrounds[stationData.train] || '../images/station/default.png';
-//         cardDiv.style.backgroundImage = `url('${backgroundImage}')`;
-//         cardDiv.style.backgroundSize = "cover"; // Ensures the image covers the entire area
-//         cardDiv.style.backgroundRepeat = "no-repeat"; // Prevents repeating
-//         cardDiv.style.backgroundPosition = "center"; // Centers the image
-
-//         // Create the content div inside the card
-//         const contentDiv = document.createElement('div');
-//         contentDiv.classList.add('d-flex', 'flex-column', 'h-100', 'pb-3', 'text-shadow-1');
-
-//         // Add station name as a link
-//         const link = document.createElement('a');
-//         link.innerHTML = stationData.name;
-//         link.href = "eachStation.html?docID=" + doc.id;
-//         link.classList.add('text-white', 'fw-bold', 'display-6', 'lh-1', 'mb-4', 'mt-5'); // Styling to match Bootstrap headings
-
-//         // Add bookmark icon
-//         const bookmarkIcon = document.createElement('img');
-//         bookmarkIcon.classList.add('bookmark');
-//         bookmarkIcon.src = "../images/icon/unsaved.png";
-//         bookmarkIcon.style.cursor = "pointer";
-//         bookmarkIcon.addEventListener('click', (e) => {
-//             e.preventDefault();
-//             bookmarkIcon.src = "../images/icon/saved.png";
-//             addToSave(uid, doc.id);
-//         });
-
-//         // Append elements
-//         contentDiv.appendChild(link); // Add the link as the heading
-//         contentDiv.appendChild(bookmarkIcon); // Add the bookmark icon
-
-//         cardDiv.appendChild(contentDiv);
-//         colDiv.appendChild(cardDiv);
-
-//         // Append the column to the container
-//         const container = document.getElementById('container');
-//         container.appendChild(colDiv);
-//     });
-// };
-
-// renderList();
-
-//DOM creation of stations
-const cdropDown = document.getElementById('cdrop-down');
-const edropDown = document.getElementById('edrop-down');
-const mdropDown = document.getElementById('mdrop-down');
 
 //add event listener to toggle display proeperty of dropdown div
 const addClicks = () => {
