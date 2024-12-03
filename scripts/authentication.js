@@ -54,7 +54,7 @@ const userSignIn = async () => {
         await onAuthStateChanged(auth, (user) => {
             //if user is logged in
             if(user){
-                $('#sidebar-placeholder').load('../pages/components/side_after.html');
+                $('#sidebar-placeholder').load('../components/side_after.html');
                 $('#sidebar-placeholder').on('click', '#signout-btn', () => {
                     userSignOut();
                     window.location.href = "./index.html";        
@@ -64,7 +64,7 @@ const userSignIn = async () => {
                 userDisplayName.innerHTML = `${user.displayName}`;
             //if user is not logged in
             }else{
-                $('#sidebar-placeholder').load('../pages/components/side_before.html');
+                $('#sidebar-placeholder').load('../components/side_before.html');
             }
         })
     }catch (err){
