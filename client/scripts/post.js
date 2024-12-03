@@ -107,8 +107,8 @@ const uploadToDB = async (title, detail, id) => {
         });
         incidentID = incident.id;
         console.log(incidentID);
-        addToStation(stationID);
-        addToUser();
+        await addToStation(stationID);
+        await addToUser();
         window.location.href = `eachStation.html?docID=${stationID}`;
     }catch (err){
         console.log(err);
@@ -120,7 +120,9 @@ const addToStation = async (stationID) => {
     try{
         const stationRef = doc(db, "stations", stationID);
         let arr = await getIncidentArr(stationID);
+        console.log(arr);
         arr.unshift(incidentID);
+        console.log(arr);
         await updateDoc(stationRef, {
             incidents: arr
         })

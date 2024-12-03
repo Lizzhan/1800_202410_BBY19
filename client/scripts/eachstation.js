@@ -66,22 +66,23 @@ const createIncidentUI = (title, detail, time) =>{
     const content = document.createElement('div');
     content.classList.add('incident');
     const postTitle = document.createElement('p');
-    postTitle.textContent = title;
+    postTitle.innerHTML = `<b>Incident: ${title}</b>`;
     postTitle.setAttribute('style', 'font-weight:bold');
+    postTitle.setAttribute('style', "font-size: 1.2em")
     postTitle.classList.add('title');
     const postTime = document.createElement('span');
     postTime.classList.add('time');
-    postTime.textContent = time;
+    postTime.textContent = `Posted At: ${time}`;
     postTime.setAttribute('style', 'font-weight:bold');
 
     const details = document.createElement('p');
     details.classList.add('detail');
-    details.textContent = detail;
+    details.innerHTML = `<b>Detail</b>: <br>${detail}`;
     const straightLine = document.createElement('hr');
 
     content.appendChild(straightLine);
-    content.appendChild(postTime);
     content.appendChild(postTitle);
+    content.appendChild(postTime);
     content.appendChild(details);
 
     container.appendChild(content);
