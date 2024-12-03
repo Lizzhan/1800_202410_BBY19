@@ -41,7 +41,7 @@ const fbLogin = async (email, password) => {
     try{
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         //redirect
-        window.location.href = "/index.html";        
+        window.location.href = "./index.html";        
         console.log(auth.currentUser);
     }catch (err){
         console.log(err);
@@ -54,17 +54,17 @@ const userSignIn = async () => {
         await onAuthStateChanged(auth, (user) => {
             //if user is logged in
             if(user){
-                $('#sidebar-placeholder').load('/components/side_after.html');
+                $('#sidebar-placeholder').load('../components/side_after.html');
                 $('#sidebar-placeholder').on('click', '#signout-btn', () => {
                     userSignOut();
-                    window.location.href = "/index.html";        
+                    window.location.href = "./index.html";        
                 });
 
                 const userDisplayName = document.getElementById('username');
                 userDisplayName.innerHTML = `${user.displayName}`;
             //if user is not logged in
             }else{
-                $('#sidebar-placeholder').load('/components/side_before.html');
+                $('#sidebar-placeholder').load('../components/side_before.html');
             }
         })
     }catch (err){
