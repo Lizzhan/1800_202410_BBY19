@@ -67,7 +67,23 @@ It has the following subfolders and files:
 ├── components # Folder for jQuery components
 ├── images # Folder for images
 /icon #Folder for icons
+/door-open.svg # Flaticon
+/gear-fill.svg # Flaticon
+/house-door.svg # Flaticon
+/house.svg # Flaticon
+/more.svg # Flaticon
+/person.svg # Flaticon
+/saved.svg # Flaticon
+/train-front-fill.svg # Flaticon
+/train-front.svg # Flaticon
+/twitter-x.svg # Flaticon
+/unsaved.png # Flaticon
+
 /station #Folder for train images
+/default.png #
+/photo1.png #
+/photo2.png #
+/photo3.png #
 /videos #Folder for background video
 /enjenir.webp # reddit
 /logo_transparant_small.png #GPT generated
