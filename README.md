@@ -1,4 +1,5 @@
-# Project Title
+# ALERTOGO 
+URL: https://comp1800pj.web.app/ 
 
 ## 1. Project Description
 
@@ -15,8 +16,8 @@ User can:
 
 List team members and/or short bio's here...
 
-- Hello it's Leslie
-- Hello it is Ted.
+- Leslie Zhang
+- Ted Ip
 
 ## 3. Technologies and Resources Used
 
